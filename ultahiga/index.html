@@ -86,7 +86,7 @@
         left: 10px;
       }
 
-      /* Ubah bagian .candle dan .flame ini */
+    
       .candle {
         width: 6px;
         height: 20px;
@@ -94,27 +94,27 @@
         position: absolute;
         top: -45px;
         left: 47px;
-        border-radius: 3px 3px 0 0; /* Tambahkan rounded corner di atas */
+        border-radius: 3px 3px 0 0; 
       }
 
       .flame {
-        width: 1px; /* Sesuaikan dengan lebar lilin */
-        height: 12px; /* Kurangi tinggi api */
+        width: 1px;
+        height: 12px; 
         position: absolute;
-        top: -57px; /* Sesuaikan posisi agar tepat di atas lilin */
-        left: 47px; /* Sesuaikan agar center dengan lilin */
+        top: -57px; 
+        left: 47px; 
         transition: opacity 0.3s;
       }
 
       .flame::before {
         content: "";
         position: absolute;
-        width: 6px; /* Sesuaikan dengan lebar dasar api */
-        height: 12px; /* Sesuaikan dengan tinggi api */
+        width: 6px; 
+        height: 12px; 
         background: #ff4500;
         border-radius: 50% 50% 20% 20%;
         animation: flicker 0.5s infinite alternate;
-        transform-origin: center bottom; /* Api bergerak dari bawah */
+        transform-origin: center bottom; 
       }
 
       /* Sesuaikan animasi api */
@@ -129,12 +129,12 @@
         }
       }
 
-      /* Sesuaikan juga posisi asap */
+     
       .smoke {
         width: 6px;
         height: 12px;
         position: absolute;
-        top: -57px; /* Sesuaikan dengan posisi api */
+        top: -57px; 
         left: 47px;
         opacity: 0;
         transition: all 0.3s;
@@ -273,13 +273,13 @@
       const photoRight = document.getElementById("photo-right");
 
       function startCelebration() {
-        // Sembunyikan tombol
+       
         event.target.style.display = "none";
 
-        // Tampilkan countdown
+        
         countdown.style.display = "block";
 
-        // Mulai hitungan mundur
+     
         let count = 3;
         countdown.textContent = count;
 
@@ -289,7 +289,7 @@
             countdown.textContent = count;
           } else if (count === 0) {
             countdown.textContent = "Tiup!";
-            // Mainkan musik
+        
             try {
               audio.play().catch((error) => {
                 console.error("Audio play failed:", error);
@@ -301,11 +301,11 @@
             clearInterval(timer);
             countdown.style.display = "none";
 
-            // Matikan lilin dan tampilkan asap
+         
             flame.classList.add("out");
             smoke.classList.add("show");
 
-            // Tunggu sebentar, lalu tampilkan foto
+           
             setTimeout(() => {
               photoLeft.style.opacity = "1";
               photoRight.style.opacity = "1";
@@ -314,17 +314,17 @@
         }, 1000);
       }
 
-      // Pastikan audio sudah dimuat
+    
       audio.addEventListener("canplaythrough", () => {
         console.log("Audio is ready to play");
       });
 
-      // Error handling untuk audio
+    
       audio.addEventListener("error", (e) => {
         console.error("Audio error:", e);
       });
 
-      // Stop musik ketika halaman ditutup
+    
       window.addEventListener("beforeunload", () => {
         audio.pause();
         audio.currentTime = 0;
